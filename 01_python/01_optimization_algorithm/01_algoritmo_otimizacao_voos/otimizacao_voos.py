@@ -16,7 +16,7 @@ destino = "GRU"
 
 voos = {}
 
-with open("01_algoritmo_otimizacao_voos/voos.txt", "r") as arquivo:
+with open("voos.txt", "r") as arquivo:
     for linha in arquivo:
         origem, destino, saida, chegada, preco = linha.split(",")
         voos.setdefault((origem, destino), [])
@@ -35,7 +35,7 @@ def imprimir_agenda(agenda):
         ida = voos[(origem, destino)][agenda[id_voo]]
         id_voo += 1
         volta = voos[(destino, origem)][agenda[id_voo]]
-        print(f"{nome}, {origem}, {ida[0]}, {ida[1]}, R$ {ida[2]}")
+        print(f"{nome}    {origem} {ida[0]} {ida[1]} R$ {ida[2]} {volta[0]} {volta[0]} R$ {volta[0]}")
 
 agenda = [1,4, 3,2, 7,3, 6,3, 2,4, 5,3]
 imprimir_agenda(agenda)
